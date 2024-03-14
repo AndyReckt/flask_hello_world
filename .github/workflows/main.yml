@@ -26,13 +26,13 @@ jobs:
             last_directory=$(basename ${{ runner.workspace }})
             cd $HOME/www/
             git clone https://github.com/${{ github.repository }}.git
-            mv flask_hellow_world/ hello-world
+            mv flask_hellow_world/ flask-hello
             # Vérifier si le répertoire de destination existe
-            if [ "$(ls -A ./hello-world)" ]; then
-              rsync -r ./$last_directory/ ./hello-world
+            if [ "$(ls -A ./flask-hello)" ]; then
+              rsync -r ./$last_directory/ ./flask-hello
               rm -rf ./$last_directory
             else
-              echo "Le répertoire hello-world de destination sur votre serveur n'existe pas"
+              echo "Le répertoire flask-hello de destination sur votre serveur n'existe pas"
               exit 1
             fi
   Restart:
